@@ -1001,5 +1001,8 @@ require('lazy').setup({
   },
 })
 
+require('luasnip.loaders.from_vscode').lazy_load {
+  paths = { vim.fn.stdpath 'data' .. '/lazy/vscode-odoo-snippets' },
+}
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
