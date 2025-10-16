@@ -219,6 +219,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
+vim.opt.tabstop = 4
 
 -- [[ Configure and install plugins ]]
 --
@@ -481,6 +482,8 @@ require('lazy').setup({
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
+    vim.lsp.enable 'qmlls',
+    vim.lsp.config('qmlls', { cmd = { 'qmlls6', '-E' } }),
     config = function()
       -- Brief aside: **What is LSP?**
       --
